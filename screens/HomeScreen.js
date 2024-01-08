@@ -1,8 +1,10 @@
-import { View, Text, TextInput } from "react-native";
+import { View, Text, TextInput, ScrollView } from "react-native";
 import React from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { StatusBar } from "expo-status-bar";
 import Ionicons from "@expo/vector-icons/Ionicons";
+import { themeColors } from "../theme";
+import Categories from "../components/categories";
 
 export default function HomeScreen() {
   return (
@@ -17,12 +19,21 @@ export default function HomeScreen() {
             <Text className="text-gray-600">New York, NYC</Text>
           </View>
         </View>
-        <View className='p-3 rounded-full bg-gray-300'>
-            <Ionicons name="cog" size={20} color="gray" />
-
+        <View
+          style={{ backgroundColor: themeColors.bgColor(1) }}
+          className="p-3 rounded-full bg-gray-300"
+        >
+          <Ionicons name="cog" size={27} color="white" />
         </View>
       </View>
-      <Text>HomeScreen</Text>
+      <ScrollView
+        showsHorizontalScrollIndicator={false}
+        contentContainerStyle={{
+          paddingBottom: 20,
+        }}
+      >
+        <Categories />
+      </ScrollView>
     </SafeAreaView>
   );
 }
