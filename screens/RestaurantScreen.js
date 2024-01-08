@@ -6,6 +6,7 @@ import React from "react";
 import { useRoute } from "@react-navigation/native";
 import { themeColors } from "../theme";
 import DishRow from "../components/dishRow";
+import CartIcon from "../components/cartIcon";
 
 export default function RestaurantScreen() {
   const { params } = useRoute();
@@ -14,6 +15,7 @@ export default function RestaurantScreen() {
 
   return (
     <View>
+      <CartIcon />
       <ScrollView>
         <View className="relative">
           <Image className="w-full h-72" source={item.image} />
